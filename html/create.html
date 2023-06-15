@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/chart.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <!-- Icon -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+  <div class="grid-container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <!-- <span class="material-icons-outlined">search</span> -->
+      </div>
+      <div class="header-right">
+        <span class="material-icons-outlined">notifications</span>
+        <span class="material-icons-outlined">email</span>
+        <span class="material-icons-outlined">account_circle</span>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <img
+            src="https://play-lh.googleusercontent.com/pvRimUSIXNT5KHU3SCfkD-wLOn_hALI-XuaDXjoncpPr2BAKvMywvtnZW8ZGj4ITOiSP=w240-h480-rw"
+            alt="logo" style="max-width: 100px;">
+        </div>
+      </div>
+
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="./index.html" target="_blank">
+            <span class="material-icons-outlined">dashboard</span> Dashboard
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="./income.html" target="_blank">
+            <span class="material-icons-outlined">fact_check</span> Income
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="./outcome.html" target="_blank">
+            <span class="material-icons-outlined">add_shopping_cart</span> Outcome
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="./outcome.html" target="_blank">
+            <span class="material-icons-outlined">savings</span> Saving
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="./register.html" target="_blank">
+            <span class="material-icons-outlined">account_circle</span> Account
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <!-- End Sidebar -->
+
+    <!-- Main -->
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold">INCOME</p>
+        <p>
+          <button onclick="save()" class="succeed-background text-white button-none">Save</button>
+          <button onclick="cancel()" class="button-none">Cancel</button>
+        </p>
+      </div>
+
+      <!-- Form create/ update -->
+      <div class="input-group mb-3">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1">Type</span>
+          <input type="text" class="form-control" placeholder="Title of this task" aria-label="Type"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Spending user email" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+        </div>
+        <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1">Amount</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <span class="input-group-text" style="margin-right: 10px;">000 đ</span>
+          <span class="input-group-text" id="basic-addon1">Spending date</span>
+          <input type="date" id="date" name="trip-start" value="2023-01-01" min="2023-01-01" max="2023-12-31"
+            style="padding: 5px 15px;">
+        </div>
+        <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text">More details</span>
+        <textarea class="form-control" aria-label="With textarea"></textarea>
+      </div>
+
+    </main>
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function create() {
+      document.location.href = "./create.html";
+    }
+  </script>
+</body>
+
+</html>

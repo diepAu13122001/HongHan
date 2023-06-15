@@ -1,0 +1,43 @@
+.my-nav{
+    background-color:rgb(162, 201, 255) ;
+}
+.logo{
+    margin: 10px;
+    padding: 10px;
+   
+}
+
+.logo img {
+    max-height: 100px;
+}
+.categories{
+    justify-content: start;
+    text-align: left;
+    list-style: none;
+}
+
+.categories li {
+    width: 90%;
+    padding: 10px 10px 10px 0;
+    margin:10px 10px 10px 0;
+    font-size: larger;
+    
+   
+}
+
+.categories li svg {
+    margin-right: 5px;
+}
+.categories li:hover{
+    font-weight: 700;
+    background-color: rgba(140, 191, 250, 0.998);
+    cursor: pointer;
+}
+.main-section{
+    background-color: rgb(217, 233, 255);
+}
+
+.title{
+   
+    color: rgb(7, 87, 192);
+}
