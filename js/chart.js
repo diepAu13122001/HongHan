@@ -1,3 +1,4 @@
+// import ApexCharts from 'apexcharts';
 var options1 = {
     chart: {
         height: 350,
@@ -225,9 +226,9 @@ var options3 = {
   };
 
 var chart1 = new ApexCharts(document.querySelector("#chart1"), options1);
-var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+// var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
 var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
 
 chart1.render();
-chart2.render();
+// chart2.render();
 chart3.render();

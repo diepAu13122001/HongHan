@@ -46,27 +46,27 @@
 
       <ul class="sidebar-list">
         <li class="sidebar-list-item">
-          <a href="./index.html" target="_blank">
+          <a href="../index.html" onclick="clickTag">
             <span class="material-icons-outlined">dashboard</span> Dashboard
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="./income.html" target="_blank">
+          <a href="./income.html" onclick="clickTag">
             <span class="material-icons-outlined">fact_check</span> Income
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="./outcome.html" target="_blank">
+          <a href="./outcome.html" onclick="clickTag">
             <span class="material-icons-outlined">add_shopping_cart</span> Outcome
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="./outcome.html" target="_blank">
+          <a href="./saving.html" onclick="clickTag">
             <span class="material-icons-outlined">savings</span> Saving
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="./register.html" target="_blank">
+          <a href="./register.html" onclick="clickTag">
             <span class="material-icons-outlined">account_circle</span> Account
           </a>
         </li>
@@ -79,40 +79,45 @@
       <div class="main-title">
         <p class="font-weight-bold">INCOME</p>
         <p>
-          <button onclick="save()" class="succeed-background text-white button-none">Save</button>
-          <button onclick="cancel()" class="button-none">Cancel</button>
+          <button id="create" class="succeed-background text-white button-none">Save</button>
+          <button onclick="location.href = '../index.html'" class="button-none">Cancel</button>
         </p>
       </div>
 
       <!-- Form create/ update -->
       <div class="input-group mb-3">
         <div class="input-group">
-          <span class="input-group-text" id="basic-addon1">Type</span>
+          <span class="input-group-text" id="basic-addon1">Title</span>
           <input type="text" class="form-control" placeholder="Title of this task" aria-label="Type"
-            aria-describedby="basic-addon1">
+            aria-describedby="basic-addon1" id="Tittle">
         </div>
-        <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
       </div>
 
       <div class="input-group mb-3">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Spending user email" aria-label="Recipient's username"
-            aria-describedby="basic-addon2">
+            aria-describedby="basic-addon2" id="createdBy">
           <span class="input-group-text" id="basic-addon2">@gmail.com</span>
         </div>
-        <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
       </div>
 
       <div class="input-group mb-3">
         <div class="input-group">
           <span class="input-group-text" id="basic-addon1">Amount</span>
           <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-          <span class="input-group-text" style="margin-right: 10px;">000 đ</span>
+          <span class="input-group-text" style="margin-right: 10px;" id="Amount">000 đ</span>
+
+          <span class="input-group-text" id="basic-addon1">Type</span>
+          <select name="types" id="Type">
+            <option value="income" id="income">Income</option>
+            <option value="outcome" id="outcome">Outcome</option>
+            <option value="saving" id="saving">Saving</option>
+          </select>
+
           <span class="input-group-text" id="basic-addon1">Spending date</span>
           <input type="date" id="date" name="trip-start" value="2023-01-01" min="2023-01-01" max="2023-12-31"
             style="padding: 5px 15px;">
         </div>
-        <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
       </div>
 
       <div class="input-group">
@@ -136,6 +141,8 @@
       document.location.href = "./create.html";
     }
   </script>
+
+  <script type="module" src="../js/create.js"></script>
 </body>
 
 </html>

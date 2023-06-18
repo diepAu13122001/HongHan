@@ -1,136 +1,55 @@
-import Login from "./login.js";
-import app from "./index.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-class Create {
-    $containerDiv
-    $titleH2
-    $signupForm
-    $emailInputEmail
-    $nameInputTxt
-    $passInputPass
-    $confirmPassInputPass
-    $submitBtn
-    $gotoSigninLink
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-lite.js";
+import { db } from "./initApp.js";
 
-    constructor (type) {
-        this.$emailInputEmail = document.createElement("input"); // <input> </input>
-        this.$emailInputEmail.type = "email"; 
-        this.$emailInputEmail.placeholder = "Enter your email..."
+// lấy danh sách các trường dữ liệu
+const tittle = document.getElementById("Tittle").value;
+const type = document.getElementById("Type").value;
+const amount = document.getElementById("Amount").value;
+const createdBy = document.getElementById("createdBy").value;
+const createdAt = document.getElementById("createdBy").value;
 
-        this.$nameInputTxt = document.createElement("input")
-        this.$nameInputTxt.type = "text";
-        this.$nameInputTxt.placeholder = "Enter your name... "
+const btnCreate = document.getElementById("create");
 
-        this.$passInputPass = document.createElement("input")
-        this.$passInputPass.type = "password";
-        this.$passInputPass.placeholder = "Enter your password ..."
-
-        this.$confirmPassInputPass = document.createElement("input")
-        this.$confirmPassInputPass.type = "password";
-        this.$confirmPassInputPass.placeholder = "Confirm your password... "
-
-
-        this.$submitBtn = document.createElement("button")
-        this.$submitBtn.type = "submit";
-        this.$submitBtn.innerHTML = "Register"
-        this.$submitBtn.addEventListener("click", this.handleSubmit);
-
-        this.$gotoSigninLink = document.createElement("a")
-        this.$gotoSigninLink.innerHTML  = "You already have account? Signin now";
-        this.$gotoSigninLink.addEventListener("click", this.gotoSignin)
-
-
-        this.$containerDiv = document.createElement("div")
-        this.$containerDiv.classList.add("center","app")
-
-        this.$titleH2 = document.createElement("h2")
-        this.$titleH2.innerHTML = "Create your account"
-
-        this.$signupForm = document.createElement("form")
-        this.$signupForm.style = ""
-
-       
+const create = async (db) => {
+    // kiểm tra nếu có trơờng trống thì phải báo lỗi 
+    if(tittle == "" || tittle == undefined) {
+        alert("Please fill form");
+        return; // thoat ra khoi function de khong lam tiep code
+    }
+    if(type == "" || type == undefined) {
+        alert("Please fill form");
+        return; // thoat ra khoi function de khong lam tiep code
+    }
+    if(amount == "" || amount == undefined) {
+        alert("Please fill form");
+        return; // thoat ra khoi function de khong lam tiep code
+    }
+    if(createdBy == "" || createdBy == undefined) {
+        alert("Please fill form");
+        return; // thoat ra khoi function de khong lam tiep code
+    }
+    if(createdAt == "" || createdAt == undefined) {
+        alert("Please fill form");
+        return; // thoat ra khoi function de khong lam tiep code
     }
 
-    initRender = (container) => {
-        this.$signupForm.appendChild(this.$emailInputEmail);
-        this.$signupForm.appendChild(this.$nameInputTxt);
-        this.$signupForm.appendChild(this.$passInputPass);
-        this.$signupForm.appendChild(this.$confirmPassInputPass);
-        this.$signupForm.appendChild(this.$submitBtn);
+    //tạo dữ liệu
+    try {
+        const docRef = await addDoc(collection(db, "tasts"), {
+          Tittle: "di an",
+          Amount: 200000,
+          Type: "Outcome",
+          createdAt: Date.now()  ,
+          createdBy:"Han"
+        });
+      
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
 
-        this.$containerDiv.appendChild(this.$titleH2); 
-        this.$containerDiv.appendChild(this.$signupForm); 
-        this.$containerDiv.appendChild(this.$gotoSigninLink)
-
-       
-        container.appendChild(this.$containerDiv)
-
-
-    }
-
-
-
-    handleSubmit = (e) => {
-     
-// validation
-e.preventDefault(); // can lai cac su mac dinh de xem co dung yeu cau nhap du lieu chua 
-const email = this.$emailInputEmail.value;
-const password = this.$passInputPass.value;
-const confirmPass = this.$confirmPassInputPass.value;
-const userName = this.$nameInputTxt.value;
-
-if(email == "") {
- alert("Email cannot be empty!");
- return;
-}
-if(password.length < 6) {
- alert("Password must be least 6 letters!");
- return;
-}
-if(userName == "") {
-  alert("Username cannot be empty!");
-  return;
- }
- if(confirmPass == "") {
-  alert("Confirm your password!");
-  return;
- }
- if(password != confirmPass) {
-  alert("Your password not match!");
-  return;
- }
-
-
-
-
-        
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    window.location.href = "./index.html"
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-    }
-
-
-
-
-                                                                                          
-    gotoSignin = () => {
-        const login = new Login();
-        app.changeActiveScreen(login);
-
-
-    }
 }
 
-export default Create;
+btnCreate.addEventListener("click", async () => {
+    await create(db);
+})
